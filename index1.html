@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background:#0f0f0f;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+  display:flex;
+  justify-content:space-between;
+  padding:20px 10%;
+  position:fixed;
+  width:100%;
+  background:rgba(0,0,0,0.5);
+  backdrop-filter:blur(10px);
+}
+
+nav h1{
+  font-weight:700;
+}
+
+nav ul{
+  display:flex;
+  gap:30px;
+  list-style:none;
+}
+
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.hero h2{
+  font-size:60px;
+  background:linear-gradient(90deg,#00f2ff,#ff00c8);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  margin-top:20px;
+  color:#aaa;
+}
+
+/* BUTTON */
+.btn{
+  margin-top:30px;
+  padding:12px 25px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(90deg,#00f2ff,#ff00c8);
+  color:#fff;
+  cursor:pointer;
+}
+
+/* SECTION */
+section{
+  padding:100px 10%;
+}
+
+/* CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:#1a1a1a;
+  padding:20px;
+  border-radius:20px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 10px 30px rgba(0,255,255,0.2);
+}
+
+/* CONTACT */
+input, textarea{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  border:none;
+  border-radius:10px;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:#888;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h1>Portfolio</h1>
+  <ul>
+    <li>Home</li>
+    <li>About</li>
+    <li>Projects</li>
+    <li>Contact</li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div>
+    <h2>Creative Developer</h2>
+    <p>I build modern websites with premium design</p>
+    <button class="btn">View Work</button>
+  </div>
+</div>
+
+<section>
+  <h2>About Me</h2>
+  <p style="margin-top:10px;color:#aaa;">I am a passionate developer creating modern UI experiences.</p>
+</section>
+
+<section>
+  <h2>Projects</h2>
+  <div class="grid">
+    <div class="card">Project 1</div>
+    <div class="card">Project 2</div>
+    <div class="card">Project 3</div>
+  </div>
+</section>
+
+<section>
+  <h2>Contact</h2>
+  <input placeholder="Your Name">
+  <input placeholder="Email">
+  <textarea placeholder="Message"></textarea>
+  <button class="btn">Send</button>
+</section>
+
+<footer>
+  © 2026 Portfolio
+</footer>
+
+</body>
+</html>
