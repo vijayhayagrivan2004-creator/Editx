@@ -4,43 +4,234 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vijay Portfolio</title>
-<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background:#0b0b0b;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* NAVBAR */
+nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  display:flex;
+  justify-content:space-between;
+  padding:20px 8%;
+  background:rgba(0,0,0,0.5);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+}
+
+nav h2{
+  font-weight:800;
+}
+
+nav a{
+  margin-left:20px;
+  text-decoration:none;
+  color:white;
+  opacity:0.7;
+  transition:0.3s;
+}
+
+nav a:hover{
+  opacity:1;
+  color:#00aaff;
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:120px 8% 0;
+  flex-wrap:wrap;
+}
+
+/* TEXT */
+.hero-text{
+  max-width:550px;
+}
+
+.hero-text h1{
+  font-size:4rem;
+  line-height:1.1;
+  background:linear-gradient(90deg,#00aaff,#0077ff);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero-text p{
+  margin-top:20px;
+  opacity:0.7;
+}
+
+/* BUTTONS */
+.btn{
+  display:inline-block;
+  margin-top:25px;
+  margin-right:15px;
+  padding:12px 25px;
+  border:1px solid #00aaff;
+  border-radius:30px;
+  text-decoration:none;
+  color:white;
+  transition:0.3s;
+}
+
+.btn:hover{
+  background:#00aaff;
+  box-shadow:0 0 20px #00aaff;
+}
+
+/* IMAGE */
+.hero-img img{
+  width:280px;
+  border-radius:20px;
+  box-shadow:0 0 60px rgba(0,170,255,0.4);
+  transition:0.4s;
+}
+
+/* 3D EFFECT */
+.hero-img img:hover{
+  transform:scale(1.05) rotateY(10deg);
+}
+
+/* SCROLL CIRCLE */
+.scroll{
+  position:absolute;
+  right:30px;
+  top:50%;
+  transform:translateY(-50%);
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,0.2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.scroll span{
+  position:absolute;
+  font-size:10px;
+  letter-spacing:2px;
+  animation:rotate 8s linear infinite;
+}
+
+@keyframes rotate{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
+}
+
+/* SECTION */
+section{
+  padding:120px 8%;
+}
+
+/* CARD */
+.card{
+  background:#111;
+  padding:20px;
+  border-radius:15px;
+  margin-top:20px;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 10px 40px rgba(0,170,255,0.3);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  .hero{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .hero-text h1{
+    font-size:2.5rem;
+  }
+
+  .scroll{
+    display:none;
+  }
+}
+
+</style>
 </head>
 
 <body>
 
-<!-- LOADER -->
-<div id="loader">
-  <h1>VJ</h1>
-</div>
-
-<!-- CURSOR -->
-<div class="cursor"></div>
-
-<!-- NAVBAR -->
+<!-- NAV -->
 <nav>
   <h2>VJ</h2>
   <div>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="contact.html">Contact</a>
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <div>
-    <h1>Vijay Hayagrivan</h1>
-    <p id="typing"></p>
 
-    <a href="#" class="btn magnetic">LinkedIn</a>
-    <a href="#" class="btn magnetic">GitHub</a>
+  <div class="hero-text">
+    <h1>Vijay<br>Hayagrivan</h1>
+    <p>Mechatronics Engineering Student | Automation</p>
+
+    <a href="https://www.linkedin.com/in/vijayhayagrivan-r-87839a392" class="btn">LinkedIn</a>
+    <a href="https://github.com/vijayhayagrivan2004-creator" class="btn">GitHub</a>
   </div>
 
-  <img src="your-photo.jpg" class="tilt">
+  <div class="hero-img">
+    <img src="your-photo.jpg">
+  </div>
+
+  <div class="scroll">
+    <span>SCROLL • SCROLL • SCROLL •</span>
+  </div>
+
 </section>
 
-<script src="script.js"></script>
+<!-- ABOUT -->
+<section id="about">
+  <h2>About</h2>
+  <p style="opacity:0.7; max-width:500px;">
+    Passionate Mechatronics Engineering student focused on automation and embedded systems.
+  </p>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="card">Project 1 - Coming Soon</div>
+  <div class="card">Project 2 - Coming Soon</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: vijayhagrivan2008@gmail.com</p>
+</section>
+
 </body>
 </html>
