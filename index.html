@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
+
 *{
   margin:0;
   padding:0;
@@ -16,64 +17,66 @@
 }
 
 body{
-  background:#0a0a0a;
+  background:#0b0b0b;
   color:white;
   overflow-x:hidden;
-  cursor:none;
 }
 
-/* CURSOR */
-.cursor{
-  width:18px;
-  height:18px;
-  border:2px solid #00aaff;
-  border-radius:50%;
-  position:fixed;
-  pointer-events:none;
-  transform:translate(-50%,-50%);
-  transition:0.08s;
-  z-index:999;
-}
-
-/* HERO */
+/* HERO SECTION */
 .hero{
   min-height:100vh;
   display:flex;
-  justify-content:space-between;
+  flex-direction:column;
   align-items:center;
-  padding:0 8%;
-  flex-wrap:wrap;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+  position:relative;
 }
 
-/* TEXT */
-.hero-text{
-  max-width:550px;
+/* GLOW BG */
+.hero::before{
+  content:"";
+  position:absolute;
+  width:300px;
+  height:300px;
+  background:#0077ff;
+  filter:blur(120px);
+  opacity:0.3;
+  top:40%;
+  left:50%;
+  transform:translate(-50%,-50%);
 }
 
-.hero-text h1{
-  font-size:4rem;
-  line-height:1.1;
+/* NAME */
+.hero h1{
+  font-size:3rem;
+  font-weight:800;
   background:linear-gradient(90deg,#00aaff,#0077ff);
   -webkit-background-clip:text;
   color:transparent;
 }
 
-.typing{
-  margin-top:20px;
-  font-size:1.2rem;
+/* TEXT */
+.hero p{
+  margin-top:15px;
+  font-size:1rem;
   opacity:0.7;
 }
 
-/* BUTTON */
+/* BUTTONS */
+.btns{
+  margin-top:25px;
+}
+
 .btn{
   display:inline-block;
-  margin-top:25px;
-  margin-right:15px;
-  padding:12px 25px;
+  margin:10px;
+  padding:12px 30px;
   border:1px solid #00aaff;
-  border-radius:30px;
-  color:white;
+  border-radius:50px;
   text-decoration:none;
+  color:white;
   transition:0.3s;
 }
 
@@ -83,43 +86,37 @@ body{
 }
 
 /* IMAGE */
-.hero-img{
-  perspective:1200px;
+.hero img{
+  width:180px;
+  margin-top:40px;
+  border-radius:50%;
+  box-shadow:0 0 40px rgba(0,170,255,0.4);
+  transition:0.3s;
 }
 
-.hero-img img{
-  width:280px;
-  border-radius:20px;
-  transition:0.4s ease;
-  box-shadow:0 0 60px rgba(0,170,255,0.4);
-}
-
-/* SMOOTH TILT */
-.hero-img img:hover{
+.hero img:hover{
   transform:scale(1.05);
 }
 
-/* ROTATING CIRCLE */
+/* ROTATING TEXT */
 .scroll-circle{
   position:fixed;
-  right:30px;
+  right:15px;
   top:50%;
   transform:translateY(-50%);
-  width:100px;
-  height:100px;
+  width:80px;
+  height:80px;
   border-radius:50%;
-  border:1px solid rgba(255,255,255,0.15);
+  border:1px solid rgba(255,255,255,0.2);
   display:flex;
   justify-content:center;
   align-items:center;
-  backdrop-filter:blur(6px);
 }
 
 .scroll-circle span{
+  font-size:9px;
   position:absolute;
-  font-size:10px;
-  letter-spacing:2px;
-  animation:rotate 12s linear infinite;
+  animation:rotate 10s linear infinite;
 }
 
 @keyframes rotate{
@@ -127,61 +124,50 @@ body{
   to{transform:rotate(360deg);}
 }
 
-/* SECTION */
+/* SECTIONS */
 section{
-  min-height:100vh;
-  padding:100px 8%;
+  padding:80px 20px;
+  text-align:center;
 }
 
-/* CARD */
+/* ABOUT */
+.about p{
+  max-width:500px;
+  margin:auto;
+  opacity:0.7;
+}
+
+/* PROJECT */
 .card{
-  background:#111;
-  padding:20px;
-  border-radius:15px;
   margin-top:20px;
+  padding:20px;
+  background:#111;
+  border-radius:12px;
   transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 15px 40px rgba(0,170,255,0.3);
+  transform:translateY(-8px);
+  box-shadow:0 10px 30px rgba(0,170,255,0.3);
 }
 
-/* SCROLL ANIMATION */
-.hidden{
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s ease;
-}
-
-.show{
-  opacity:1;
-  transform:translateY(0);
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  .hero{
-    flex-direction:column;
-    text-align:center;
+/* MOBILE FIX */
+@media(min-width:768px){
+  .hero h1{
+    font-size:4rem;
   }
 
-  .hero-text h1{
-    font-size:2.5rem;
-  }
-
-  .scroll-circle{
-    display:none;
+  .hero img{
+    width:220px;
   }
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="cursor"></div>
-
-<!-- ROTATING CIRCLE -->
+<!-- ROTATING SIDE -->
 <div class="scroll-circle">
   <span>CRAFT • IMPACT • AUTOMATION •</span>
 </div>
@@ -189,80 +175,38 @@ section{
 <!-- HERO -->
 <section class="hero">
 
-  <div class="hero-text">
-    <h1>Vijay Hayagrivan</h1>
-    <div class="typing" id="typing"></div>
+  <h1>Vijay Hayagrivan</h1>
 
+  <p>Mechatronics Engineering Student | Automation & Innovation</p>
+
+  <div class="btns">
     <a href="https://www.linkedin.com/in/vijayhayagrivan-r-87839a392" class="btn">LinkedIn</a>
     <a href="https://github.com/vijayhayagrivan2004-creator" class="btn">GitHub</a>
     <a href="mailto:vijayhagrivan2008@gmail.com" class="btn">Email</a>
   </div>
 
-  <div class="hero-img">
-    <img src="profile.jpg" id="tilt">
-  </div>
+  <!-- IMAGE -->
+  <img src="profile.jpg" alt="Vijay">
 
 </section>
 
 <!-- ABOUT -->
-<section class="hidden">
+<section class="about">
   <h2>About</h2>
-  <p style="opacity:0.7; max-width:500px;">
+  <p>
     Passionate Mechatronics Engineering student focused on automation,
     embedded systems, and real-world engineering solutions.
   </p>
 </section>
 
-<!-- PROJECT -->
-<section class="hidden">
+<!-- PROJECTS -->
+<section>
   <h2>Projects</h2>
+
   <div class="card">Project 1 - Coming Soon</div>
   <div class="card">Project 2 - Coming Soon</div>
+
 </section>
-
-<script>
-
-// TYPING EFFECT
-const text = "Mechatronics Engineering Student | Automation & Innovation";
-let i = 0;
-function typing(){
-  if(i < text.length){
-    document.getElementById("typing").innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typing,25);
-  }
-}
-typing();
-
-// CURSOR
-const cursor = document.querySelector('.cursor');
-document.addEventListener('mousemove',e=>{
-  cursor.style.top = e.clientY + 'px';
-  cursor.style.left = e.clientX + 'px';
-});
-
-// SMOOTH 3D TILT
-const img = document.getElementById("tilt");
-document.addEventListener("mousemove",(e)=>{
-  let x = (window.innerWidth/2 - e.clientX)/35;
-  let y = (window.innerHeight/2 - e.clientY)/35;
-  img.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
-});
-
-// SCROLL REVEAL
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add('show');
-    }
-  });
-});
-
-document.querySelectorAll('.hidden').forEach(el=>{
-  observer.observe(el);
-});
-
-</script>
 
 </body>
 </html>
