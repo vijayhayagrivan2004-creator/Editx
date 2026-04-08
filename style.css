@@ -18,31 +18,23 @@ nav{
   display:flex;
   justify-content:space-between;
   padding:20px 8%;
-  background:rgba(0,0,0,0.6);
   backdrop-filter:blur(10px);
   z-index:1000;
 }
 
 nav a{
   margin-left:20px;
-  text-decoration:none;
   color:white;
-  opacity:0.7;
-}
-
-nav a:hover{
-  color:#00aaff;
-  opacity:1;
+  text-decoration:none;
 }
 
 /* HERO */
 .hero{
-  min-height:100vh;
+  height:100vh;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
+  justify-content:space-between;
   align-items:center;
-  text-align:center;
+  padding:0 10%;
 }
 
 .hero h1{
@@ -52,14 +44,10 @@ nav a:hover{
   color:transparent;
 }
 
-.hero p{
-  margin-top:15px;
-  opacity:0.7;
-}
-
 /* BUTTON */
-.btn{
-  margin-top:20px;
+.buttons a{
+  display:inline-block;
+  margin:15px;
   padding:12px 25px;
   border:1px solid #00aaff;
   border-radius:30px;
@@ -67,32 +55,14 @@ nav a:hover{
   color:white;
 }
 
-.btn:hover{
-  background:#00aaff;
-}
-
 /* IMAGE */
-.hero img{
-  width:180px;
-  margin-top:40px;
-  border-radius:50%;
+.hero-img img{
+  width:280px;
+  border-radius:20px;
   box-shadow:0 0 40px rgba(0,170,255,0.4);
 }
 
-/* SECTION */
-section{
-  padding:120px 8%;
-}
-
-/* CARD */
-.card{
-  margin-top:20px;
-  padding:20px;
-  background:#111;
-  border-radius:10px;
-}
-
-/* ROTATING CIRCLE */
+/* ROTATING TEXT */
 .circle{
   position:fixed;
   right:20px;
@@ -109,7 +79,7 @@ section{
 .circle span{
   font-size:10px;
   position:absolute;
-  animation:spin 8s linear infinite;
+  animation:spin 10s linear infinite;
 }
 
 @keyframes spin{
