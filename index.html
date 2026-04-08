@@ -7,8 +7,10 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
-<style>
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
+<style>
 *{
   margin:0;
   padding:0;
@@ -17,41 +19,24 @@
 }
 
 body{
-  background:#0b0b0b;
+  background:#0a0a0a;
   color:white;
   overflow-x:hidden;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero{
-  min-height:100vh;
+  height:100vh;
   display:flex;
   flex-direction:column;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   text-align:center;
-  padding:20px;
-  position:relative;
 }
 
-/* GLOW BG */
-.hero::before{
-  content:"";
-  position:absolute;
-  width:300px;
-  height:300px;
-  background:#0077ff;
-  filter:blur(120px);
-  opacity:0.3;
-  top:40%;
-  left:50%;
-  transform:translate(-50%,-50%);
-}
-
-/* NAME */
+/* TITLE */
 .hero h1{
-  font-size:3rem;
-  font-weight:800;
+  font-size:4rem;
   background:linear-gradient(90deg,#00aaff,#0077ff);
   -webkit-background-clip:text;
   color:transparent;
@@ -59,30 +44,23 @@ body{
 
 /* TEXT */
 .hero p{
-  margin-top:15px;
-  font-size:1rem;
+  margin-top:20px;
   opacity:0.7;
 }
 
-/* BUTTONS */
-.btns{
-  margin-top:25px;
-}
-
+/* BUTTON */
 .btn{
-  display:inline-block;
-  margin:10px;
-  padding:12px 30px;
+  margin-top:20px;
+  padding:12px 25px;
   border:1px solid #00aaff;
-  border-radius:50px;
-  text-decoration:none;
+  border-radius:30px;
   color:white;
+  text-decoration:none;
   transition:0.3s;
 }
 
 .btn:hover{
   background:#00aaff;
-  box-shadow:0 0 25px #00aaff;
 }
 
 /* IMAGE */
@@ -91,21 +69,15 @@ body{
   margin-top:40px;
   border-radius:50%;
   box-shadow:0 0 40px rgba(0,170,255,0.4);
-  transition:0.3s;
-}
-
-.hero img:hover{
-  transform:scale(1.05);
 }
 
 /* ROTATING TEXT */
-.scroll-circle{
+.circle{
   position:fixed;
-  right:15px;
+  right:20px;
   top:50%;
-  transform:translateY(-50%);
-  width:80px;
-  height:80px;
+  width:90px;
+  height:90px;
   border-radius:50%;
   border:1px solid rgba(255,255,255,0.2);
   display:flex;
@@ -113,53 +85,15 @@ body{
   align-items:center;
 }
 
-.scroll-circle span{
-  font-size:9px;
+.circle span{
   position:absolute;
-  animation:rotate 10s linear infinite;
+  font-size:10px;
+  animation:spin 8s linear infinite;
 }
 
-@keyframes rotate{
-  from{transform:rotate(0deg);}
+@keyframes spin{
+  from{transform:rotate(0);}
   to{transform:rotate(360deg);}
-}
-
-/* SECTIONS */
-section{
-  padding:80px 20px;
-  text-align:center;
-}
-
-/* ABOUT */
-.about p{
-  max-width:500px;
-  margin:auto;
-  opacity:0.7;
-}
-
-/* PROJECT */
-.card{
-  margin-top:20px;
-  padding:20px;
-  background:#111;
-  border-radius:12px;
-  transition:0.3s;
-}
-
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 10px 30px rgba(0,170,255,0.3);
-}
-
-/* MOBILE FIX */
-@media(min-width:768px){
-  .hero h1{
-    font-size:4rem;
-  }
-
-  .hero img{
-    width:220px;
-  }
 }
 
 </style>
@@ -167,46 +101,52 @@ section{
 
 <body>
 
-<!-- ROTATING SIDE -->
-<div class="scroll-circle">
+<div class="circle">
   <span>CRAFT • IMPACT • AUTOMATION •</span>
 </div>
 
-<!-- HERO -->
 <section class="hero">
+  <h1 id="title">Vijay Hayagrivan</h1>
+  <p id="subtitle">Mechatronics Engineering Student</p>
 
-  <h1>Vijay Hayagrivan</h1>
+  <a href="#" class="btn">LinkedIn</a>
+  <a href="#" class="btn">GitHub</a>
 
-  <p>Mechatronics Engineering Student | Automation & Innovation</p>
-
-  <div class="btns">
-    <a href="https://www.linkedin.com/in/vijayhayagrivan-r-87839a392" class="btn">LinkedIn</a>
-    <a href="https://github.com/vijayhayagrivan2004-creator" class="btn">GitHub</a>
-    <a href="mailto:vijayhagrivan2008@gmail.com" class="btn">Email</a>
-  </div>
-
-  <!-- IMAGE -->
-  <img src="profile.jpg" alt="Vijay">
-
+  <img src="profile.jpg">
 </section>
 
-<!-- ABOUT -->
-<section class="about">
-  <h2>About</h2>
-  <p>
-    Passionate Mechatronics Engineering student focused on automation,
-    embedded systems, and real-world engineering solutions.
-  </p>
-</section>
+<script>
 
-<!-- PROJECTS -->
-<section>
-  <h2>Projects</h2>
+// GSAP ANIMATION (THIS IS THE KEY)
+gsap.from("#title",{
+  y:100,
+  opacity:0,
+  duration:1.2,
+  ease:"power4.out"
+});
 
-  <div class="card">Project 1 - Coming Soon</div>
-  <div class="card">Project 2 - Coming Soon</div>
+gsap.from("#subtitle",{
+  y:50,
+  opacity:0,
+  delay:0.3,
+  duration:1
+});
 
-</section>
+gsap.from(".btn",{
+  y:30,
+  opacity:0,
+  stagger:0.2,
+  delay:0.6
+});
+
+gsap.from("img",{
+  scale:0.8,
+  opacity:0,
+  delay:0.8,
+  duration:1
+});
+
+</script>
 
 </body>
 </html>
