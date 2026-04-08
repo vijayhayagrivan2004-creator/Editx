@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vijay Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -22,31 +22,37 @@ body{
   cursor:none;
 }
 
-/* CUSTOM CURSOR */
+/* CURSOR */
 .cursor{
-  width:20px;
-  height:20px;
+  width:18px;
+  height:18px;
   border:2px solid #00aaff;
   border-radius:50%;
   position:fixed;
   pointer-events:none;
   transform:translate(-50%,-50%);
-  transition:0.1s;
+  transition:0.08s;
   z-index:999;
 }
 
 /* HERO */
 .hero{
-  height:100vh;
+  min-height:100vh;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:0 10%;
+  padding:0 8%;
+  flex-wrap:wrap;
 }
 
 /* TEXT */
+.hero-text{
+  max-width:550px;
+}
+
 .hero-text h1{
   font-size:4rem;
+  line-height:1.1;
   background:linear-gradient(90deg,#00aaff,#0077ff);
   -webkit-background-clip:text;
   color:transparent;
@@ -54,15 +60,15 @@ body{
 
 .typing{
   margin-top:20px;
-  font-size:1.3rem;
-  opacity:0.8;
+  font-size:1.2rem;
+  opacity:0.7;
 }
 
 /* BUTTON */
 .btn{
   display:inline-block;
-  margin-top:20px;
-  margin-right:10px;
+  margin-top:25px;
+  margin-right:15px;
   padding:12px 25px;
   border:1px solid #00aaff;
   border-radius:30px;
@@ -73,22 +79,27 @@ body{
 
 .btn:hover{
   background:#00aaff;
-  box-shadow:0 0 20px #00aaff;
+  box-shadow:0 0 25px #00aaff;
 }
 
-/* IMAGE 3D */
+/* IMAGE */
 .hero-img{
-  perspective:1000px;
+  perspective:1200px;
 }
 
 .hero-img img{
   width:280px;
   border-radius:20px;
-  transition:0.3s;
-  box-shadow:0 0 40px rgba(0,170,255,0.4);
+  transition:0.4s ease;
+  box-shadow:0 0 60px rgba(0,170,255,0.4);
 }
 
-/* ROTATING SCROLL INDICATOR */
+/* SMOOTH TILT */
+.hero-img img:hover{
+  transform:scale(1.05);
+}
+
+/* ROTATING CIRCLE */
 .scroll-circle{
   position:fixed;
   right:30px;
@@ -97,17 +108,18 @@ body{
   width:100px;
   height:100px;
   border-radius:50%;
-  border:1px solid rgba(255,255,255,0.2);
+  border:1px solid rgba(255,255,255,0.15);
   display:flex;
   justify-content:center;
   align-items:center;
+  backdrop-filter:blur(6px);
 }
 
 .scroll-circle span{
   position:absolute;
-  animation:rotate 10s linear infinite;
   font-size:10px;
   letter-spacing:2px;
+  animation:rotate 12s linear infinite;
 }
 
 @keyframes rotate{
@@ -115,47 +127,31 @@ body{
   to{transform:rotate(360deg);}
 }
 
-/* SECTIONS */
+/* SECTION */
 section{
   min-height:100vh;
-  padding:100px 10%;
+  padding:100px 8%;
 }
 
-/* CARDS */
+/* CARD */
 .card{
   background:#111;
   padding:20px;
   border-radius:15px;
+  margin-top:20px;
   transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-10px) scale(1.03);
+  transform:translateY(-10px);
   box-shadow:0 15px 40px rgba(0,170,255,0.3);
-}
-
-/* SKILLS */
-.bar{
-  height:6px;
-  background:#222;
-  margin-top:10px;
-}
-
-.fill{
-  height:100%;
-  background:#00aaff;
-  animation:load 2s forwards;
-}
-
-@keyframes load{
-  from{width:0;}
 }
 
 /* SCROLL ANIMATION */
 .hidden{
   opacity:0;
-  transform:translateY(50px);
-  transition:1s;
+  transform:translateY(40px);
+  transition:1s ease;
 }
 
 .show{
@@ -169,6 +165,14 @@ section{
     flex-direction:column;
     text-align:center;
   }
+
+  .hero-text h1{
+    font-size:2.5rem;
+  }
+
+  .scroll-circle{
+    display:none;
+  }
 }
 </style>
 </head>
@@ -179,7 +183,7 @@ section{
 
 <!-- ROTATING CIRCLE -->
 <div class="scroll-circle">
-  <span>SCROLL • SCROLL • SCROLL •</span>
+  <span>CRAFT • IMPACT • AUTOMATION •</span>
 </div>
 
 <!-- HERO -->
@@ -195,7 +199,7 @@ section{
   </div>
 
   <div class="hero-img">
-    <img src="your-photo.jpg" id="tilt">
+    <img src="profile.jpg" id="tilt">
   </div>
 
 </section>
@@ -203,24 +207,29 @@ section{
 <!-- ABOUT -->
 <section class="hidden">
   <h2>About</h2>
-  <p>Passionate Mechatronics Engineering student interested in automation and embedded systems.</p>
+  <p style="opacity:0.7; max-width:500px;">
+    Passionate Mechatronics Engineering student focused on automation,
+    embedded systems, and real-world engineering solutions.
+  </p>
 </section>
 
 <!-- PROJECT -->
 <section class="hidden">
   <h2>Projects</h2>
-  <div class="card">Coming Soon</div>
+  <div class="card">Project 1 - Coming Soon</div>
+  <div class="card">Project 2 - Coming Soon</div>
 </section>
 
 <script>
-// TYPING
-const text = "Mechatronics Engineering Student | Interested in Automation";
+
+// TYPING EFFECT
+const text = "Mechatronics Engineering Student | Automation & Innovation";
 let i = 0;
 function typing(){
   if(i < text.length){
     document.getElementById("typing").innerHTML += text.charAt(i);
     i++;
-    setTimeout(typing,30);
+    setTimeout(typing,25);
   }
 }
 typing();
@@ -232,11 +241,11 @@ document.addEventListener('mousemove',e=>{
   cursor.style.left = e.clientX + 'px';
 });
 
-// 3D TILT
+// SMOOTH 3D TILT
 const img = document.getElementById("tilt");
 document.addEventListener("mousemove",(e)=>{
-  let x = (window.innerWidth/2 - e.pageX)/25;
-  let y = (window.innerHeight/2 - e.pageY)/25;
+  let x = (window.innerWidth/2 - e.clientX)/35;
+  let y = (window.innerHeight/2 - e.clientY)/35;
   img.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
 });
 
@@ -252,6 +261,7 @@ const observer = new IntersectionObserver(entries=>{
 document.querySelectorAll('.hidden').forEach(el=>{
   observer.observe(el);
 });
+
 </script>
 
 </body>
