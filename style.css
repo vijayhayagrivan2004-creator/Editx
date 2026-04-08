@@ -8,6 +8,24 @@
 body{
   background:#0a0a0a;
   color:white;
+  overflow:hidden;
+}
+
+/* PAGE TRANSITION */
+.page{
+  position:absolute;
+  width:100%;
+  min-height:100vh;
+  padding:120px 10%;
+  transform:translateY(100%);
+  opacity:0;
+}
+
+/* ACTIVE PAGE */
+.page.active{
+  transform:translateY(0);
+  opacity:1;
+  transition:1s ease;
 }
 
 /* NAV */
@@ -18,26 +36,17 @@ nav{
   display:flex;
   justify-content:space-between;
   padding:20px 8%;
-  backdrop-filter:blur(10px);
   z-index:1000;
 }
 
 nav a{
   margin-left:20px;
-  color:white;
   text-decoration:none;
+  color:white;
 }
 
 /* HERO */
-.hero{
-  height:100vh;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:0 10%;
-}
-
-.hero h1{
+h1{
   font-size:4rem;
   background:linear-gradient(90deg,#00aaff,#0077ff);
   -webkit-background-clip:text;
@@ -45,21 +54,19 @@ nav a{
 }
 
 /* BUTTON */
-.buttons a{
+.btn{
   display:inline-block;
-  margin:15px;
+  margin-top:20px;
   padding:12px 25px;
   border:1px solid #00aaff;
   border-radius:30px;
-  text-decoration:none;
-  color:white;
 }
 
 /* IMAGE */
-.hero-img img{
-  width:280px;
-  border-radius:20px;
-  box-shadow:0 0 40px rgba(0,170,255,0.4);
+img{
+  width:200px;
+  border-radius:50%;
+  margin-top:30px;
 }
 
 /* ROTATING TEXT */
@@ -78,7 +85,6 @@ nav a{
 
 .circle span{
   font-size:10px;
-  position:absolute;
   animation:spin 10s linear infinite;
 }
 
