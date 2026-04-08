@@ -5,10 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vijay Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
-
 *{
   margin:0;
   padding:0;
@@ -17,79 +16,58 @@
 }
 
 body{
-  background:#0b0b0b;
+  background:#0a0a0a;
   color:white;
   overflow-x:hidden;
+  cursor:none;
 }
 
-/* NAVBAR */
-nav{
+/* CUSTOM CURSOR */
+.cursor{
+  width:20px;
+  height:20px;
+  border:2px solid #00aaff;
+  border-radius:50%;
   position:fixed;
-  width:100%;
-  top:0;
-  display:flex;
-  justify-content:space-between;
-  padding:20px 8%;
-  background:rgba(0,0,0,0.5);
-  backdrop-filter:blur(10px);
-  z-index:1000;
-}
-
-nav h2{
-  font-weight:800;
-}
-
-nav a{
-  margin-left:20px;
-  text-decoration:none;
-  color:white;
-  opacity:0.7;
-  transition:0.3s;
-}
-
-nav a:hover{
-  opacity:1;
-  color:#00aaff;
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  transition:0.1s;
+  z-index:999;
 }
 
 /* HERO */
 .hero{
-  min-height:100vh;
+  height:100vh;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  padding:120px 8% 0;
-  flex-wrap:wrap;
+  align-items:center;
+  padding:0 10%;
 }
 
 /* TEXT */
-.hero-text{
-  max-width:550px;
-}
-
 .hero-text h1{
   font-size:4rem;
-  line-height:1.1;
   background:linear-gradient(90deg,#00aaff,#0077ff);
   -webkit-background-clip:text;
   color:transparent;
 }
 
-.hero-text p{
+.typing{
   margin-top:20px;
-  opacity:0.7;
+  font-size:1.3rem;
+  opacity:0.8;
 }
 
-/* BUTTONS */
+/* BUTTON */
 .btn{
   display:inline-block;
-  margin-top:25px;
-  margin-right:15px;
+  margin-top:20px;
+  margin-right:10px;
   padding:12px 25px;
   border:1px solid #00aaff;
   border-radius:30px;
-  text-decoration:none;
   color:white;
+  text-decoration:none;
   transition:0.3s;
 }
 
@@ -98,39 +76,38 @@ nav a:hover{
   box-shadow:0 0 20px #00aaff;
 }
 
-/* IMAGE */
+/* IMAGE 3D */
+.hero-img{
+  perspective:1000px;
+}
+
 .hero-img img{
   width:280px;
   border-radius:20px;
-  box-shadow:0 0 60px rgba(0,170,255,0.4);
-  transition:0.4s;
+  transition:0.3s;
+  box-shadow:0 0 40px rgba(0,170,255,0.4);
 }
 
-/* 3D EFFECT */
-.hero-img img:hover{
-  transform:scale(1.05) rotateY(10deg);
-}
-
-/* SCROLL CIRCLE */
-.scroll{
-  position:absolute;
+/* ROTATING SCROLL INDICATOR */
+.scroll-circle{
+  position:fixed;
   right:30px;
   top:50%;
   transform:translateY(-50%);
-  width:90px;
-  height:90px;
+  width:100px;
+  height:100px;
   border-radius:50%;
   border:1px solid rgba(255,255,255,0.2);
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
 }
 
-.scroll span{
+.scroll-circle span{
   position:absolute;
+  animation:rotate 10s linear infinite;
   font-size:10px;
   letter-spacing:2px;
-  animation:rotate 8s linear infinite;
 }
 
 @keyframes rotate{
@@ -138,100 +115,144 @@ nav a:hover{
   to{transform:rotate(360deg);}
 }
 
-/* SECTION */
+/* SECTIONS */
 section{
-  padding:120px 8%;
+  min-height:100vh;
+  padding:100px 10%;
 }
 
-/* CARD */
+/* CARDS */
 .card{
   background:#111;
   padding:20px;
   border-radius:15px;
-  margin-top:20px;
   transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 10px 40px rgba(0,170,255,0.3);
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 15px 40px rgba(0,170,255,0.3);
+}
+
+/* SKILLS */
+.bar{
+  height:6px;
+  background:#222;
+  margin-top:10px;
+}
+
+.fill{
+  height:100%;
+  background:#00aaff;
+  animation:load 2s forwards;
+}
+
+@keyframes load{
+  from{width:0;}
+}
+
+/* SCROLL ANIMATION */
+.hidden{
+  opacity:0;
+  transform:translateY(50px);
+  transition:1s;
+}
+
+.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
 /* MOBILE */
 @media(max-width:768px){
-
   .hero{
     flex-direction:column;
     text-align:center;
   }
-
-  .hero-text h1{
-    font-size:2.5rem;
-  }
-
-  .scroll{
-    display:none;
-  }
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
-<nav>
-  <h2>VJ</h2>
-  <div>
-    <a href="#">Home</a>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
+<div class="cursor"></div>
+
+<!-- ROTATING CIRCLE -->
+<div class="scroll-circle">
+  <span>SCROLL • SCROLL • SCROLL •</span>
+</div>
 
 <!-- HERO -->
 <section class="hero">
 
   <div class="hero-text">
-    <h1>Vijay<br>Hayagrivan</h1>
-    <p>Mechatronics Engineering Student | Automation</p>
+    <h1>Vijay Hayagrivan</h1>
+    <div class="typing" id="typing"></div>
 
     <a href="https://www.linkedin.com/in/vijayhayagrivan-r-87839a392" class="btn">LinkedIn</a>
     <a href="https://github.com/vijayhayagrivan2004-creator" class="btn">GitHub</a>
+    <a href="mailto:vijayhagrivan2008@gmail.com" class="btn">Email</a>
   </div>
 
   <div class="hero-img">
-    <img src="your-photo.jpg">
-  </div>
-
-  <div class="scroll">
-    <span>SCROLL • SCROLL • SCROLL •</span>
+    <img src="your-photo.jpg" id="tilt">
   </div>
 
 </section>
 
 <!-- ABOUT -->
-<section id="about">
+<section class="hidden">
   <h2>About</h2>
-  <p style="opacity:0.7; max-width:500px;">
-    Passionate Mechatronics Engineering student focused on automation and embedded systems.
-  </p>
+  <p>Passionate Mechatronics Engineering student interested in automation and embedded systems.</p>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
+<!-- PROJECT -->
+<section class="hidden">
   <h2>Projects</h2>
-
-  <div class="card">Project 1 - Coming Soon</div>
-  <div class="card">Project 2 - Coming Soon</div>
+  <div class="card">Coming Soon</div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: vijayhagrivan2008@gmail.com</p>
-</section>
+<script>
+// TYPING
+const text = "Mechatronics Engineering Student | Interested in Automation";
+let i = 0;
+function typing(){
+  if(i < text.length){
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typing,30);
+  }
+}
+typing();
+
+// CURSOR
+const cursor = document.querySelector('.cursor');
+document.addEventListener('mousemove',e=>{
+  cursor.style.top = e.clientY + 'px';
+  cursor.style.left = e.clientX + 'px';
+});
+
+// 3D TILT
+const img = document.getElementById("tilt");
+document.addEventListener("mousemove",(e)=>{
+  let x = (window.innerWidth/2 - e.pageX)/25;
+  let y = (window.innerHeight/2 - e.pageY)/25;
+  img.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+});
+
+// SCROLL REVEAL
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+});
+
+document.querySelectorAll('.hidden').forEach(el=>{
+  observer.observe(el);
+});
+</script>
 
 </body>
 </html>
