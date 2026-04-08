@@ -1,0 +1,118 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background:#0a0a0a;
+  color:white;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  display:flex;
+  justify-content:space-between;
+  padding:20px 8%;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+}
+
+nav a{
+  margin-left:20px;
+  text-decoration:none;
+  color:white;
+  opacity:0.7;
+}
+
+nav a:hover{
+  color:#00aaff;
+  opacity:1;
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:4rem;
+  background:linear-gradient(90deg,#00aaff,#0077ff);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  margin-top:15px;
+  opacity:0.7;
+}
+
+/* BUTTON */
+.btn{
+  margin-top:20px;
+  padding:12px 25px;
+  border:1px solid #00aaff;
+  border-radius:30px;
+  text-decoration:none;
+  color:white;
+}
+
+.btn:hover{
+  background:#00aaff;
+}
+
+/* IMAGE */
+.hero img{
+  width:180px;
+  margin-top:40px;
+  border-radius:50%;
+  box-shadow:0 0 40px rgba(0,170,255,0.4);
+}
+
+/* SECTION */
+section{
+  padding:120px 8%;
+}
+
+/* CARD */
+.card{
+  margin-top:20px;
+  padding:20px;
+  background:#111;
+  border-radius:10px;
+}
+
+/* ROTATING CIRCLE */
+.circle{
+  position:fixed;
+  right:20px;
+  top:50%;
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,0.2);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.circle span{
+  font-size:10px;
+  position:absolute;
+  animation:spin 8s linear infinite;
+}
+
+@keyframes spin{
+  from{transform:rotate(0);}
+  to{transform:rotate(360deg);}
+}
