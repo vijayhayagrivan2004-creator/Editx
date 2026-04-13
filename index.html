@@ -1,471 +1,691 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Drake</title>
-		<!-- Google Fonts -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap"
-			rel="stylesheet"
-		/>
-		<!-- Font Awesome -->
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-			integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
-		<!-- CSS Style -->
-		<link rel="stylesheet" href="assets/css/normalize.css" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body>
-		<!-- Start Preloader -->
-		<div id="preloader" class="preloader">
-			<div class="loader"></div>
-		</div>
-		<!-- End Preloader -->
-		<!-- Start Background Video -->
-		<video id="bgVideoPlayer" class="bg-video" muted autoplay loop>
-			<source
-				id="bgVideoSource"
-				src="assets/videos/simple-strings.mp4"
-				type="video/mp4"
-			/>
-		</video>
-		<!-- Start Settings -->
-		<button class="settings-btn btn-secondary" id="settingsOpenBtn">
-			<i class="fa-solid fa-gear fa-fw icon"></i>
-		</button>
-		<div class="settings" id="settingsContainer">
-			<div class="settings__content">
-				<button class="settings__close-btn btn-unset" id="settingsCloseBtn">
-					<i class="fa-solid fa-xmark fa-fw icon"></i>
-				</button>
-				<h2 class="settings__title">Settings</h2>
-				<div class="buttons-configuration">
-					<p class="background-video-configuration">Background Video</p>
-					<div id="buttonsContainer" class="buttons-container"></div>
-				</div>
-			</div>
-		</div>
-		<!-- End Settings -->
-		<!-- End Background Video -->
-		<div class="page container">
-			<!-- Start Navbar -->
-			<nav class="navbar">
-				<ul class="navbar__list">
-					<li class="navbar__item">
-						<a href="#home" class="navbar__link active">
-							<i class="fa-solid fa-house fa-fw icon navbar__icon"></i>
-						</a>
-					</li>
-					<li class="navbar__item">
-						<a href="#about" class="navbar__link">
-							<i class="fa-solid fa-user fa-fw icon navbar__icon"></i>
-						</a>
-					</li>
-					<li class="navbar__item">
-						<a href="#resume" class="navbar__link">
-							<i class="fa-solid fa-briefcase fa-fw icon navbar__icon"></i>
-						</a>
-					</li>
-					<li class="navbar__item">
-						<a href="#services" class="navbar__link">
-							<i class="fa-solid fa-bars-staggered fa-fw icon navbar__icon"></i>
-						</a>
-					</li>
-					<li class="navbar__item">
-						<a href="#skills" class="navbar__link">
-							<i class="fa-solid fa-shapes fa-fw icon navbar__icon"></i>
-						</a>
-					</li>
-					<li class="navbar__item">
-						<a href="#portfolio" class="navbar__link">
-							<i class="fa-solid fa-grip-vertical fa-fw icon navbar__icon"></i>
-						</a>
-					</li>
-					<li class="navbar__item">
-						<a href="#testimonial" class="navbar__link">
-							<i class="fa-solid fa-comment-dots fa-fw icon navbar__icon"></i>
-						</a>
-					</li>
-					<li class="navbar__item">
-						<a href="#pricing" class="navbar__link">
-							<i class="fa-solid fa-dollar-sign fa-fw icon navbar__icon"></i>
-						</a>
-					</li>
-					<li class="navbar__item">
-						<a href="#contact" class="navbar__link">
-							<i class="fa-solid fa-envelope fa-fw icon navbar__icon"></i>
-						</a>
-					</li>
-				</ul>
-			</nav>
-			<!-- End Navbar -->
-			<!-- Start Sidebar -->
-			<aside class="sidebar">
-				<div class="profile">
-					<div class="profile__header">
-						<img
-							class="profile__logo"
-							src="assets/images/logo.png"
-							alt="logo"
-						/>
-						<p class="profile__designation">Framer Designer & Developer</p>
-					</div>
-					<div class="profile__content">
-						<img
-							class="profile__image"
-							src="assets/images/profile.jpg"
-							alt="Profile Image"
-						/>
-						<p class="profile__info">hello@drake.design</p>
-						<p class="profile__info">Base in Los Angeles, CA</p>
-						<p class="copyright">&copy; 2022 Drake. All rights reserved</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vijayhub.tech — Your Vision, My Code</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── CSS Custom Properties ─────────────────────────────── */
+    :root {
+      --bg:          #0a0a0a;
+      --surface:     #111111;
+      --card:        #1a1a1a;
+      --border:      #2a2a2a;
+      --border-light:#333333;
+      --text:        #e0e0e0;
+      --text-muted:  #888888;
+      --text-dim:    #555555;
+      --accent:      #ffffff;
+      --accent-soft: rgba(255,255,255,0.07);
+      --accent-glow: rgba(255,255,255,0.04);
+      --sidebar-w:   260px;
+      --radius:      8px;
+      --transition:  0.25s ease;
+      --font:        'Poppins', sans-serif;
+    }
 
-						<div class="social">
-							<ul class="social__list">
-								<li class="social__item">
-									<a
-										class="social__link"
-										href="https://github.com/IssaKass"
-										target="_blank"
-									>
-										<i class="fa-brands fa-github fa-fw social__icon icon"></i>
-									</a>
-								</li>
-								<li class="social__item">
-									<a
-										class="social__link"
-										href="https://pin.it/33ixDmc"
-										target="_blank"
-									>
-										<i
-											class="fa-brands fa-pinterest fa-fw social__icon icon"
-										></i>
-									</a>
-								</li>
-								<li class="social__item">
-									<a
-										class="social__link"
-										href="https://dribbble.com/IssaKass"
-										target="_blank"
-									>
-										<i
-											class="fa-brands fa-dribbble fa-fw social__icon icon"
-										></i>
-									</a>
-								</li>
-							</ul>
+    /* ─── Reset & Base ──────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font-family: var(--font); }
 
-							<button class="btn-primary btn-block">
-								<i class="fa-regular fa-envelope fa-fw icon"></i>
-								Hire Me!
-							</button>
-						</div>
-					</div>
-				</div>
-			</aside>
-			<!-- End Sidebar -->
-			<main class="main">
-				<!-- Start Home Section -->
-				<section class="section home" id="home">
-					<div class="wrapper">
-						<p class="section__subtitle">
-							<i class="fa-solid fa-house fa-fw icon"></i>
-							Home
-						</p>
-						<h1 class="section__title section__title--lg">
-							Say Hi from <span>Drake</span>, Framer Designer and Developer
-						</h1>
-						<p class="section__description">
-							I design and code beautifully simple things and i love what i do.
-							Just simple like that!
-						</p>
-						<a class="goto border circle" href="#portfolio">
-							&DownArrow;
-							<img
-								class="goto__image"
-								src="assets/images/round-text.png"
-								alt=""
-							/>
-						</a>
-						<div class="facts">
-							<div class="fact">
-								<p class="fact__number">10+</p>
-								<p class="fact__description">Years of experince</p>
-							</div>
-							<div class="fact">
-								<p class="fact__number">182+</p>
-								<p class="fact__description">
-									Projects completed on 15 countries
-								</p>
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- End Home Section -->
-				<!-- Start About Section -->
-				<section class="section about" id="about">
-					<div class="wrapper">
-						<p class="section__subtitle">
-							<i class="fa-solid fa-user fa-fw icon"></i>
-							About
-						</p>
-						<h2 class="section__title">
-							Every great design begin with an even <span>better story</span>
-						</h2>
-						<p class="section__description">
-							Since beginning my journey as a freelance designer nearly 8 years
-							ago, I've done remote work for agencies, consulted for startups,
-							and collaborated with talented people to create digital products
-							for both business and consumer use. I'm quietly confident,
-							naturally curious, and perpetually working on improving my
-							chopsone design problem at a time.
-						</p>
-					</div>
-				</section>
-				<!-- End About Section -->
-				<!-- Start Resume Section -->
-				<section class="section resume" id="resume">
-					<div class="wrapper">
-						<p class="section__subtitle">
-							<i class="fa-solid fa-briefcase fa-fw icon"></i>
-							Resume
-						</p>
-						<h2 class="section__title">Education & <span>Experience</span></h2>
-						<div class="resume__wrapper timelines">
-							<!-- Added using JS dynamically -->
-						</div>
-					</div>
-				</section>
-				<!-- End Resume Section -->
-				<!-- Start Services Section -->
-				<section class="section services" id="services">
-					<div class="wrapper">
-						<p class="section__subtitle">
-							<i class="fa-solid fa-bars-staggered fa-fw icon"></i>
-							Services
-						</p>
-						<h2 class="section__title">My <span>Specializations</span></h2>
-						<div class="services__wrapper">
-							<!-- Added using JS dynamically -->
-						</div>
-					</div>
-				</section>
-				<!-- End Services Section -->
-				<!-- Start Skills Section -->
-				<section class="section skills" id="skills">
-					<div class="wrapper">
-						<p class="section__subtitle">
-							<i class="fa-solid fa-shapes fa-fw icon"></i>
-							Skills
-						</p>
-						<h2 class="section__title">My <span>Advantages</span></h2>
-						<div class="skills__wrapper">
-							<!-- Added using JS dynamically -->
-						</div>
-					</div>
-				</section>
-				<!-- End Skills Section -->
-				<!-- Start Portfolio Section -->
-				<section class="section portfolio" id="portfolio">
-					<div class="wrapper">
-						<p class="section__subtitle">
-							<i class="fa-solid fa-grip-vertical fa-fw icon"></i>
-							Portfolio
-						</p>
-						<h2 class="section__title">Featured <span>Projects</span></h2>
-						<div class="portfolio__wrapper projects">
-							<!-- Added using JS dynamically -->
-						</div>
-					</div>
-				</section>
-				<!-- End Portfolio Section -->
-				<!-- Start Testimonial Section -->
-				<section class="section testimonial" id="testimonial">
-					<div class="wrapper">
-						<p class="section__subtitle">
-							<i class="fa-regular fa-comment-dots fa-fw icon"></i>
-							Testimonial
-						</p>
-						<h2 class="section__title">
-							Trusted by <span>Hundered Clients</span>
-						</h2>
-						<div class="slider" id="clientsSlider">
-							<div class="slider-wrapper">
-								<!-- Added using JS dynamically -->
-							</div>
-							<button class="slider-button-prev">
-								<i class="fa-solid fa-chevron-left fa-fw icon"></i>
-							</button>
-							<button class="slider-button-next">
-								<i class="fa-solid fa-chevron-right fa-fw icon"></i>
-							</button>
-						</div>
-						<div class="brands">
-							<p class="brands__description">Work with 60+ brands worldwide</p>
-							<div class="brands__wrapper">
-								<div class="brand">
-									<img
-										class="brand__image"
-										src="assets/images/brands/brand1.png"
-									/>
-								</div>
-								<div class="brand">
-									<img
-										class="brand__image"
-										src="assets/images/brands/brand2.png"
-									/>
-								</div>
-								<div class="brand">
-									<img
-										class="brand__image"
-										src="assets/images/brands/brand3.png"
-									/>
-								</div>
-								<div class="brand">
-									<img
-										class="brand__image"
-										src="assets/images/brands/brand4.png"
-									/>
-								</div>
-								<div class="brand">
-									<img
-										class="brand__image"
-										src="assets/images/brands/brand5.png"
-									/>
-								</div>
-								<div class="brand">
-									<img
-										class="brand__image"
-										src="assets/images/brands/brand6.png"
-									/>
-								</div>
-								<div class="brand">
-									<img
-										class="brand__image"
-										src="assets/images/brands/brand7.png"
-									/>
-								</div>
-								<div class="brand">
-									<img
-										class="brand__image"
-										src="assets/images/brands/brand8.png"
-									/>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<!-- End Testimonial Section -->
-				<!-- Start Pricing Section -->
-				<section class="section pricing" id="pricing">
-					<div class="wrapper">
-						<p class="section__subtitle">
-							<i class="fa-solid fa-dollar-sign fa-fw icon"></i>
-							Pricing
-						</p>
-						<h2 class="section__title">My <span>Pricing</span></h2>
-						<div class="pricing__wrapper plans">
-							<!-- Added using JS dynamically -->
-						</div>
-					</div>
-				</section>
-				<!-- End Pricing Section -->
-				<!-- Start Contact Section -->
-				<section class="section contact" id="contact">
-					<div class="wrapper">
-						<p class="section__subtitle">
-							<i class="fa-solid fa-envelope fa-fw icon"></i>
-							Contact
-						</p>
-						<h2 class="section__title">Let's Work <span>Together!</span></h2>
-						<div class="contact__wrapper">
-							<form action="" class="form">
-								<div class="form__group">
-									<label class="form__label" for="fullname">Full name</label>
-									<input
-										class="form__control"
-										type="text"
-										name="fullname"
-										id="fullname"
-										placeholder="Your full name"
-										required
-									/>
-								</div>
-								<div class="form__group">
-									<label class="form__label" for="email">Email</label>
-									<input
-										class="form__control"
-										type="email"
-										name="email"
-										id="email"
-										placeholder="Your email address"
-										required
-									/>
-								</div>
-								<div class="form__group">
-									<label class="form__label" for="phone">Phone</label>
-									<input
-										class="form__control"
-										type="tel"
-										name="phone"
-										id="phone"
-										placeholder="Your phone number"
-									/>
-								</div>
-								<div class="form__group">
-									<label class="form__label" for="subject">Subject</label>
-									<select name="subject" id="subject">
-										<option value="Subject 1">Subject 1</option>
-										<option value="Subject 2">Subject 2</option>
-										<option value="Subject 3">Subject 3</option>
-									</select>
-								</div>
-								<div class="form__group form__budget">
-									<label class="form__label" for="budget">Your budget</label>
-									<input
-										class="form__control"
-										type="tel"
-										name="budget"
-										id="budget"
-										placeholder="A range budget for your project"
-									/>
-								</div>
-								<div class="form__group form__message">
-									<label class="form__label" for="message">Message</label>
-									<textarea
-										name="message"
-										id="message"
-										placeholder="Write your message here..."
-									></textarea>
-								</div>
-								<input
-									class="btn-primary form__submit"
-									type="submit"
-									value="Send message"
-								/>
-							</form>
-						</div>
-					</div>
-				</section>
-				<!-- End Contact Section -->
-			</main>
-		</div>
-		<!-- JS -->
-		<script src="assets/js/main.js"></script>
-		<script src="assets/js/resume.js"></script>
-		<script src="assets/js/services.js"></script>
-		<script src="assets/js/skills.js"></script>
-		<script src="assets/js/projects.js"></script>
-		<script src="assets/js/testimonial.js"></script>
-		<script src="assets/js/plans.js"></script>
-	</body>
-</html>
+    /* ─── Scrollbar ─────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 2px; }
+
+    /* ─── Layout ────────────────────────────────────────────── */
+    .layout { display: flex; min-height: 100vh; }
+
+    /* ─── Sidebar ───────────────────────────────────────────── */
+    .sidebar {
+      width: var(--sidebar-w);
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      position: fixed;
+      top: 0; left: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 2.5rem 0;
+      z-index: 100;
+      transition: transform var(--transition);
+    }
+    .sidebar-brand {
+      padding: 0 2rem 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+    .sidebar-brand .logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+    }
+    .sidebar-brand .tagline {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+      letter-spacing: 0.04em;
+    }
+    .nav-links { flex: 1; padding: 0 1rem; }
+    .nav-links a {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.7rem 1rem;
+      border-radius: var(--radius);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.01em;
+      transition: background var(--transition), color var(--transition);
+      margin-bottom: 0.15rem;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: var(--accent-soft);
+      color: var(--text);
+    }
+    .nav-links a .nav-icon {
+      width: 16px;
+      height: 16px;
+      opacity: 0.6;
+      flex-shrink: 0;
+    }
+    .nav-links a.active .nav-icon { opacity: 1; }
+    .sidebar-footer {
+      padding: 1.5rem 2rem 0;
+      border-top: 1px solid var(--border);
+      margin-top: auto;
+    }
+    .sidebar-socials {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.75rem;
+    }
+    .sidebar-socials a {
+      color: var(--text-dim);
+      transition: color var(--transition);
+    }
+    .sidebar-socials a:hover { color: var(--text); }
+    .sidebar-socials svg { width: 16px; height: 16px; }
+    .sidebar-footer-label {
+      font-size: 0.68rem;
+      color: var(--text-dim);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ─── Hamburger ─────────────────────────────────────────── */
+    .hamburger {
+      display: none;
+      position: fixed;
+      top: 1.25rem; right: 1.25rem;
+      z-index: 200;
+      width: 42px; height: 42px;
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--border);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      padding: 10px;
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 1.5px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .sidebar-overlay {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 90;
+      backdrop-filter: blur(2px);
+    }
+    .sidebar-overlay.visible { display: block; }
+
+    /* ─── Main Content ──────────────────────────────────────── */
+    .main {
+      margin-left: var(--sidebar-w);
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* ─── Sections ──────────────────────────────────────────── */
+    section {
+      padding: 6rem 4rem;
+      border-bottom: 1px solid var(--border);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+    .divider {
+      width: 32px;
+      height: 2px;
+      background: var(--border-light);
+      margin: 1.5rem 0;
+    }
+
+    /* ─── Fade-in animation ─────────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+    .fade-in-delay-4 { transition-delay: 0.4s; }
+    .fade-in-delay-5 { transition-delay: 0.5s; }
+
+    /* ─── Hero ──────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      justify-content: center;
+      gap: 0;
+      padding: 6rem 4rem;
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+    .hero-name {
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: -0.04em;
+      line-height: 1.0;
+      margin-bottom: 0.4rem;
+    }
+    .hero-name span { color: var(--text-muted); }
+    .hero-role {
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      font-weight: 400;
+      color: var(--text-muted);
+      letter-spacing: -0.01em;
+      margin-bottom: 2.5rem;
+    }
+    .hero-desc {
+      font-size: 0.92rem;
+      color: var(--text-dim);
+      max-width: 460px;
+      line-height: 1.75;
+      margin-bottom: 3rem;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: var(--radius);
+      font-size: 0.82rem;
+      font-weight: 500;
+      font-family: var(--font);
+      letter-spacing: 0.02em;
+      transition: all var(--transition);
+    }
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+    }
+    .btn-primary:hover {
+      background: #ffffff;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    }
+    .btn-ghost {
+      border: 1px solid var(--border-light);
+      color: var(--text-muted);
+    }
+    .btn-ghost:hover {
+      border-color: var(--text-dim);
+      color: var(--text);
+      background: var(--accent-soft);
+    }
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .stat-val {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      margin-top: 0.2rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── About ─────────────────────────────────────────────── */
+    #about { min-height: auto; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 3rem;
+      align-items: center;
+    }
+    .about-image-wrap {
+      position: relative;
+    }
+    .about-image {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: var(--radius);
+      filter: grayscale(20%);
+      border: 1px solid var(--border);
+    }
+    .about-image-badge {
+      position: absolute;
+      bottom: 1.5rem; right: -1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border-light);
+      padding: 1rem 1.25rem;
+      border-radius: var(--radius);
+      font-size: 0.78rem;
+    }
+    .badge-val { font-size: 1.4rem; font-weight: 700; color: var(--accent); }
+    .badge-lbl { color: var(--text-muted); margin-top: 0.15rem; }
+    .about-text p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.85;
+      margin-bottom: 1.25rem;
+    }
+    .about-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    .pill {
+      padding: 0.35rem 0.85rem;
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      transition: all var(--transition);
+    }
+    .pill:hover {
+      border-color: var(--text-dim);
+      color: var(--text);
+      background: var(--accent-soft);
+    }
+
+    /* ─── Skills ────────────────────────────────────────────── */
+    #skills { min-height: auto; }
+    .skills-header { margin-bottom: 3rem; }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--border);
+    }
+    .skill-category {
+      background: var(--card);
+      padding: 1.75rem;
+      transition: background var(--transition);
+    }
+    .skill-category:hover { background: #1f1f1f; }
+    .skill-cat-title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 1.25rem;
+    }
+    .skill-items { display: flex; flex-direction: column; gap: 0.9rem; }
+    .skill-item {}
+    .skill-name-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 0.45rem;
+    }
+    .skill-pct { color: var(--text-dim); font-size: 0.75rem; }
+    .skill-bar {
+      height: 2px;
+      background: var(--border-light);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .skill-bar-fill {
+      height: 100%;
+      background: var(--text);
+      border-radius: 2px;
+      width: 0;
+      transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* ─── Projects ──────────────────────────────────────────── */
+    #projects { min-height: auto; }
+    .projects-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .project-card {
+      background: var(--card);
+      transition: background var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover { background: #1c1c1c; }
+    .project-thumb-wrap {
+      overflow: hidden;
+      cursor: zoom-in;
+    }
+    .project-thumb {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      filter: grayscale(30%);
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+    .project-card:hover .project-thumb {
+      transform: scale(1.03);
+      filter: grayscale(0%);
+    }
+    .project-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .project-tags {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+    .tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.55rem;
+      border: 1px solid var(--border-light);
+      border-radius: 3px;
+      color: var(--text-dim);
+    }
+    .project-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+    .project-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      flex: 1;
+    }
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+    .project-link {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color var(--transition);
+    }
+    .project-link:hover { color: var(--text); }
+    .project-link svg { width: 12px; height: 12px; }
+
+    /* ─── Coding Profiles ───────────────────────────────────── */
+    #profiles { min-height: auto; }
+    .profiles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+    .profile-card {
+      background: var(--card);
+      padding: 2rem 1.75rem;
+      transition: background var(--transition);
+      cursor: pointer;
+    }
+    .profile-card:hover { background: #1c1c1c; }
+    .profile-logo {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      font-size: 1rem;
+    }
+    .profile-platform { font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 0.3rem; }
+    .profile-handle { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .profile-stat {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.03em;
+    }
+    .profile-stat-label { font-size: 0.7rem; color: var(--text-dim); margin-top: 0.15rem; }
+    .profile-arrow {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 1.25rem;
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      transition: color var(--transition);
+    }
+    .profile-card:hover .profile-arrow { color: var(--text); }
+
+    /* ─── Resume ────────────────────────────────────────────── */
+    #resume { min-height: auto; }
+    .resume-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+    .timeline-col {}
+    .timeline-col-title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 2rem;
+    }
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .timeline-item {
+      display: flex;
+      gap: 1.25rem;
+      padding-bottom: 2rem;
+      position: relative;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      width: 16px;
+      margin-top: 4px;
+    }
+    .timeline-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--border-light);
+      flex-shrink: 0;
+    }
+    .timeline-line {
+      width: 1px;
+      flex: 1;
+      background: var(--border);
+      margin-top: 6px;
+    }
+    .timeline-item:last-child .timeline-line { display: none; }
+    .timeline-content {}
+    .timeline-period {
+      font-size: 0.68rem;
+      color: var(--text-dim);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.3rem;
+    }
+    .timeline-title { font-size: 0.88rem; font-weight: 600; color: var(--text); margin-bottom: 0.2rem; }
+    .timeline-org { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .timeline-desc { font-size: 0.78rem; color: var(--text-dim); line-height: 1.65; }
+    .resume-download {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .resume-download p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1.25rem; }
+
+    /* ─── Contact ───────────────────────────────────────────── */
+    #contact { min-height: auto; }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+    .contact-info {}
+    .contact-info p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 2rem; }
+    .contact-details { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-detail {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .contact-detail-icon {
+      width: 16px;
+      height: 16px;
+      color: var(--text-dim);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .contact-detail-text { font-size: 0.82rem; color: var(--text-muted); }
+    .contact-detail-label { font-size: 0.68rem; color: var(--text-dim); letter-spacing: 0.06em; margin-bottom: 0.15rem; }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-label { font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.06em; }
+    .form-control {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 0.75rem 1rem;
+      font-family: var(--font);
+      font-size: 0.82rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color var(--transition);
+    }
+    .form-control::placeholder { color: var(--text-dim); }
+    .form-control:focus { border-color: var(--border-light); }
+    textarea.form-control { resize: vertical; min-height: 130px; }
+    .form-submit {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      align-items: center;
+    }
+    .form-status { font-size: 0.78rem; color: var(--text-muted); }
+    .form-status.success { color: #5a9; }
+    .form-status.error   { color: #a55; }
+
+    /* ─── Footer ────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.75rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
